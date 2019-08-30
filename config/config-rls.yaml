@@ -1,0 +1,157 @@
+# 预发布环境配置文件
+# 仅用于 Phalcon-DevTools
+application:
+  modelsDir : app/models
+
+# 环境定义 dis dev tes rls prod
+env : rls
+
+app:
+  # 用于开发阶段
+  debug    : false
+  id       : DEWIN-ZULIN
+  domain   : dewin-zulin.net
+  timezone : Asia/Shanghai
+
+default:
+  pagesize : 10
+
+log:
+  # DEBUG, INFO, WARNING, ERROR
+  level    : DEBUG
+  # 可以是绝对路径，也可以是相对路径(相对于BASE_PATH)
+  path     : /opt/lease/logs
+
+auth:
+  hash:
+    method : sha256
+  jwt:
+    iss  : https://lease.rls.e-dewin.com/
+    aud  : https://lease.rls.e-dewin.com/
+    key  : https://lease.rls.e-dewin.com/
+    exp  : 7200
+
+db:
+  host : "120.25.201.153"
+  dbname : "facilitator"
+  username : "dewei"
+  password : "YodaXu123!"
+  hostport : 3306
+
+dw:
+  host : "mysql.rls.e-dewin.com"
+  dbname : "dewin_service"
+  username : "dewei"
+  password : "to7CieQuu3aefi"
+  hostport : 3306
+  dbnames :
+    service : "dewin_service"
+    order : "dewin_order"
+    product : "dewin_product"
+    dispatch : "dewin_dispatch"
+    cabinet : "dewin_cabinet"
+    users : "dewin_users"
+    charge : "dewin_charge"
+
+dbname:
+  order : "dewin_order"
+  product : "dewin_product"
+  dispatch : "dewin_dispatch"
+  cabinet : "dewin_cabinet"
+  users : "dewin_users"
+  charge : "dewin_charge"
+#硬件数据库
+charging:
+  host : "mysql.rls.e-dewin.com"
+  dbname : "charging"
+  username : "dewei"
+  password : "to7CieQuu3aefi"
+  hostport : 3306
+
+phpems:
+  host : "mysql.rls.e-dewin.com"
+  dbname : "phpems"
+  username : "dewei"
+  password : "to7CieQuu3aefi"
+  hostport : 3306
+
+# 联保方地址
+baseUrl: "https://lease.rls.e-dewin.com"
+# Zuul地址
+ZuulBaseUrl: "http://zuul.rls.e-dewin.com:7000"
+ZuulBaseUrl2: "https://api.rls.e-dewin.com/api"
+
+# 老系统迁入车辆对应的商品id
+oldSystemVehicle:
+  product_id: 10
+  product_sku_relation_id: 9
+
+# 外部接口
+interface:
+  oldSystem:
+    erweimaInfo: "https://admin.weixin.e-dewin.com/partner/vehicleinfo/erweimaInfo"
+  warranty:
+    secretKey: "fdb652db24a07e167a0038d47b03d0f1"
+    bizCode: "1"
+    createWarranty:
+      method : "POST"
+      uri : "/warranty/outside/order"
+    endWarranty:
+      method : "PUT"
+      uri : "/warranty/outside/order/status"
+    createRepair:
+      method : "POST"
+      uri : "/warranty/outside/repair"
+    cancelRepair:
+      method : "PUT"
+      uri : "/warranty/outside/repair"
+    getRepair:
+      method : "GET"
+      uri : "/warranty/outside/repair"
+    sendRepair:
+      method : "POST"
+      url : "/rent/repairup"
+
+alipay:
+  app_id : "2018060960353071"
+  ali_public_key : "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnZimtWSsq358f5pBP/cEptrH/fwvhonoxZZlJAXvCg9YU/KZZ0dspaj4988xO/SRg/RTf+uuDVH06OPd551GZSgCKeiTH70XLfL1IvSWNkM4k8IyZmlGTxk6ajEqYcyzkOr4I8pu4wchd+oCcD2FI4s5LlcOm+XRvdUPjNIwrME19Js83rk5vQrWa+0bxUW2+vUaRafK3wEJq5IINNyS5HgvApSJzmulVYOWGgo7ul92zjEGA4j37jVE7DZowpm2AVlXAILYugKx7zk23zj2Avl0aEA7CZvuLFfcEwqxa9JQpWJ2wfIvS5hNEdG1XwGQI7Lkh204ZBY3Ydz3frLyIwIDAQAB"
+  private_key : "MIIEpQIBAAKCAQEA4pZMHi1lkxPlbAN6LNwwOuC6msVPQ1oBB+LyB1nxW3JsO821s+4L2++BouYcGsOj8zQCfBZEJL42jP6JAuo9S2HH3Aad2y/+e5MTU4+T7K0nI5kfSpKUx984ocwjMzENADKIsbRDrK9qzHu3guFOXsB/L6pztVtRaUJZ8uS+dfTWTNDkzfPyC2ZR0T1IDKhf7Cim3f1Ckmc3cCtmIXb4MsqE9TsYKc+1YeZE0na6iezB0w0F7BsYDxcNSsn0AbrmR/Tnkcf2h2T+I1DJrOrK3wzWEBzt77Do4Aq9l3u5xnPfsk5/jRfB96UQC2WpdyJcPNxioIQsgrZb80w2ZE8wFQIDAQABAoIBAQC52+jR9BDWZMKSKAQGWhKhqQbHv0L2DxS7YFeA2jEU/rVzFJiP35oQrNPcR/4TohiQfD/xgt4geXoLixndrz/Z3nnuq+q+CQ8oVArNRv9iauGo3IgDRlsN27b7WJQjAIAWgl0HzsKYGkdzNaPgkmkTZbit45YH08Dio09e4mysGT4W23L932UhEZgznrfMSTtkC+lhO9zYUXeCRVK8Cg3vVHmhEc75TQTVwiLx22Vq0o9z9Cp+ny1GjcSEgM77dUGRMdJ95UmXVofDfBJms/i5QbddcKuPBjs4+CkYtlL0vSlDBS9l4qIyEPr90MjDh5oMwKMcbtWToioNZsnwQNb9AoGBAP69hsPigzX+Wa548PTrNhdtH3mo/HT0JvjTQxqE0VgVYA2sAIyd+tKvnHylr5R3U8TPe+DfhsST5tfNOiBPWJQrLRP+djQczCPTRxG28RSLpni5XqLjA719N7LBf3ynGsnNPHeRdxbz9y7lveQNN03SBHLMKvPy0Ri8KlOTzbTfAoGBAOO1IcjBj1wud4Joof1K4cWbTXp2ifol+xlDtAaXj94ByxhpV7o76Hn4/M7AYnEZf4Og5sCLZv7YLJvAhWoeQ+BGfZXx3lnGNNUaTqMkRrgf8oC3XONCbF1b+rTFEDVHY0Rc+tGA29P9UO0og4OUexD8u+0oVtSN5Yy+zq86/mWLAoGBAOLp3IPc39hWy3gZDzp70uEnOSRcHRXo7lYzidCzgu8di0RidNLNXsIR4ClARZjQenQUBlsXgarVvIl6rE5fn53MoAjxYEWnaUh4SRREi5crloxvQxeBdLF0OwsmRfO5vqkIAtbXYue1RfgmefIMu7i8XW4M5C4Nm6iW5HUyccitAoGABUY2yB2jonD5F64wwlsvq5ITU1jXjVG/5S/qRZTRIkVMXP5jp86nbdvUjz1pilEa4QOjFKal9hUvw1PMQ078J3+6fPSjP9UVeDIpzCGU+cLTrSOSJTlupSLyRami3HkQ1Y6JyLyBWwGtFDEyCqQvzY7tE2sxx66ZuI7a3rgxGE0CgYEAzmv89LpS82I5ufY+SpRngMhR6w9vY2RKzlJSXXXNBFjCxsagZSB0MZAJLdYMHINyhk8XFOhj5l++LLOmKfXNWhApubsdfcedb/qTP9uzH6nEmyIgDa1zR8GEmoGvkJJPdDCCgXHxb26ZOKbUCSJWtYc0p+3xsEz4QydrMynH8ys="
+  notify_url : "https://lease.rls.e-dewin.com/pay/aliasync"
+  return_url : "https://lease.rls.e-dewin.com/pay/alisync"
+  log :
+    file : "../logs/alipay.log"
+    level : "debug"
+  # 沙箱模式
+#  mode : dev
+
+wxpay:
+  # APP APPID
+  appid : "wx5d28629322fe826f"
+  # 公众号 APPID 二维码使用此配置
+  app_id : "wx5d28629322fe826f"
+  # 小程序 APPID
+  miniapp_id : ""
+  # 商户号（必须配置，开户邮件中可查看）
+  mch_id : "1509202201"
+  # key：商户支付密钥，参考开户邮件设置（必须配置，登录商户平台自行设置）
+  # 设置地址：https://pay.weixin.qq.com/index.php/account/api_cert
+  key : "deweiSHiyijiahenhaodeGongsi12398"
+  notify_url : "https://lease.rls.e-dewin.com/pay/wxasync"
+  refund_notify_url : "https://lease.rls.e-dewin.com/pay/wxrefundasync"
+  cert_client : "../config/wxpaycert/apiclient_cert.pem"
+  cert_key : "../config/wxpaycert/apiclient_key.pem"
+  log :
+    file : "../logs/wxpay.log"
+    level : "debug"
+  # 沙箱模式
+#  mode : dev
+
+anqi: # 渠道未安骑 anqi
+   # 安骑的key
+  key : "xMJxrmwhdUT3zD5f1JpTxjHE"
+
+synchronizationVehicleUrl: "http://10.0.8.238:8762/erweima/sync"
+
+redis:
+  host: redis.rls.e-dewin.com
+  password: aik2Vai2ubeiCh

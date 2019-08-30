@@ -1,0 +1,14 @@
+{
+  "require": {
+    "firebase/php-jwt": "^5.0",
+    "endroid/qr-code": "^3.2",
+    "phpoffice/phpexcel": "^1.8",
+    "gregwar/captcha": "^1.1",
+    "yansongda/pay": "^2.4",
+    "phalcon/incubator": "^3.4"
+  },
+  "require-dev": {
+    "phalcon/ide-stubs": "*",
+    "phpunit/phpunit": "^7.1"
+  }
+}

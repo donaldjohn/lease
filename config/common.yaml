@@ -1,0 +1,149 @@
+# 公共配置文件【不区分环境】
+
+modules:
+  # 第一个作为默认模块
+  # moduleName : modulePrefix
+  home :
+  auth        : /auth
+  wechat      : /wechat
+  qrcode     : /qrcode
+  vehicle    : /vehicle
+  postoffice : /postoffice
+  microprograms  : /microprograms
+  dispatch      : /dispatch
+  driversapp      : /driversapp
+  pay      : /pay
+  cabinet  : /cabinet
+  shrent  : /shrent
+  rent  : /rent
+  warranty  : /warranty
+  template  : /template
+  log  : /log
+  multicodetask : /multicodetask
+  charge : /charge
+  traffic : /traffic
+  exam : /exam
+  postofficeapp : /postofficeapp
+  area : /area
+  intelligent : /intelligent
+  RentRider: /RentRider
+  biz : /biz
+
+services:
+  base:
+    dispatcher : app\core\services\Dispatcher
+    logger : \app\core\services\Logger
+    busLogger : \app\core\services\BusLogger
+    sysLogger : \app\core\services\SysLogger
+    curl : \app\core\services\Curl
+    httpservice : \app\core\services\HttpService
+    auth : \app\core\services\AuthService
+    AlipayConfig : \app\core\services\AliPayConfig
+    WxPayConfig : \app\core\services\WxPayConfig
+    validate : \app\core\services\Validate
+  data:
+    AlipayData : \app\services\data\AlipayData
+    BillData : \app\services\data\BillData
+    CabinetData : \app\services\data\CabinetData
+    DriverData : \app\services\data\DriverData
+    funcData : \app\services\data\FuncData
+    menuData : \app\services\data\MenuData
+    PackageData : \app\services\data\PackageData
+    QRCodeData : \app\services\data\QRCodeData
+    RedisData :  \app\services\data\RedisData
+    RegionData : \app\services\data\RegionData
+    roleData : \app\services\data\RoleData
+    SiteData : \app\services\data\SiteData
+    StoreData : \app\services\data\StoreData
+    subData : \app\services\data\SubData
+    userData : \app\services\data\UserData
+    userGroupData : \app\services\data\UserGroupData
+    VehicleData : \app\services\data\VehicleData
+    WxpayData : \app\services\data\WxpayData
+    warrantyData : \app\services\data\WarrantyData
+    Zuul : \app\services\data\ZuulData
+    taskData : \app\services\data\TaskData
+    templateData : \app\services\data\TemplateData
+    messagePushData : \app\services\data\MessagePushData
+    ocrData : \app\services\data\OcrData
+    examData : \app\services\data\ExamData
+    appData : \app\services\data\AppData
+
+zuul:
+  # 用户服务接口
+  user :
+    uri: /usercenter/apiservice
+    code: 30000
+  # 车辆服务接口
+  vehicle :
+    uri: /vehicle/apiservice
+    code: 10000
+  # 搜索服务接口
+  search :
+    uri: /search/apiservice
+    code: 40000
+  # 商品服务接口
+  product :
+    uri: /product-server/apiservice
+    code: 50000
+  # biz服务接口
+  biz :
+    uri: /biz/apiservice
+    code: 60000
+  # 子系统服务接口
+  dispatch :
+    uri: /dispatch-server/apiservice
+    code: 70000
+  # 换电柜服务接口
+  charging :
+    uri: /charging/apiservice
+    code: 80000
+  # 换电柜二期服务接口
+  chargingHttp :
+    uri: /charging/httpService
+    code: 80000
+  # 订单服务接口
+  order :
+    uri: /order/apiservice
+    code: 90000
+  # 缓存接口
+  redis :
+    uri: /redis-server/redisService/GetValue
+    code: 100000
+  # 缓存接口
+  redisSetValueTimeOut :
+    uri: /redis-server/redisService/setValueTimeOut
+    code: 100000
+  # 删除缓存接口
+  redisDel :
+    uri: /redis-server/redisService/removeValue
+    code: 100000
+  # 消息推送服务
+  msgPush :
+    uri: /mq-product-server/apiservice
+    code: 110000
+  # 日志服务接口
+  log :
+    uri: /log-server/apiservice
+    code: 120000
+
+
+anzhiyun:
+  channel: dewin
+  key: XohZebcUf7EEoZCKGycMDPXT
+
+
+alicloudapi:
+  general_appcode : "d07239ea4faf43e5b229ebabee6cb60d"
+  vin_appcode : "d07239ea4faf43e5b229ebabee6cb60d"
+
+qrcode:
+  url: "https://weixin.e-dewin.com"
+postoffice:
+  city_list: [410100,431100,330500]
+
+
+
+
+
+
